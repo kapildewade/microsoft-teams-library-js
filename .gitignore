@@ -6,7 +6,7 @@ npm-error
 
 # build output
 build/
-dist/
+# dist/
 dts/
 coverage/
 

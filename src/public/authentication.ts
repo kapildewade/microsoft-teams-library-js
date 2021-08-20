@@ -201,7 +201,7 @@ export namespace authentication {
           Communication.childOrigin = savedChildOrigin;
         }
       }
-    }, 100);
+    }, 2000);
     // Set up an initialize-message handler that gives the authentication window its frame context
     registerHandler('initialize', () => {
       return [FrameContexts.authentication, GlobalVars.hostClientType];
@@ -246,6 +246,7 @@ export namespace authentication {
   }
 
   function handleSuccess(result?: string): void {
+    stopAuthenticationWindowMonitor();
     try {
       if (authParams && authParams.successCallback) {
         authParams.successCallback(result);
